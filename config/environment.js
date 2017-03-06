@@ -2,6 +2,14 @@
 
 module.exports = function(environment) {
   var ENV = {
+    torii: {
+      sessionServiceName: 'session',
+      providers: {
+       'arcgis-oauth-bearer': {
+          portalUrl: 'https://www.arcgis.com'
+        }
+      }
+    },
     modulePrefix: 'ambitious-arcgis-app-test',
     environment: environment,
     rootURL: '/',
