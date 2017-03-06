@@ -4,7 +4,16 @@ var EmberApp = require('ember-cli/lib/broccoli/ember-app');
 
 module.exports = function(defaults) {
   var app = new EmberApp(defaults, {
-    // Add options here
+    amd : {
+      // only need basic mapping capabilities, so use compact
+      loader: 'https://js.arcgis.com/3.19compact/',
+      // user defined AMD packages to search for in application
+      packages: [
+        'esri','dojo','dojox','dijit',
+        'put-selector','xstyle','dgrid'
+      ],
+      configPath: 'config/dojo-config.js'
+    }
   });
 
   // Use `app.import` to add additional libraries to the generated
