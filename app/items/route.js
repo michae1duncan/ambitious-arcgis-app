@@ -7,12 +7,13 @@ export default Ember.Route.extend({
     q: { refreshModel: true }
   },
 
+  // from ember-arcgis-portal-services
+  itemsService: Ember.inject.service('items-service'),
+
   // the model hook is used to fetch any data based on route parameters
-  model (/* params */) {
-    // TODO: search for items using the search term and item type
-    return {
-      total: 0,
-      results: []
-    };
+  model (params) {
+    const itemsService = this.get('itemsService');
+    const q = params.q || '*';
+    return itemsService.search({ q });
   }
 });

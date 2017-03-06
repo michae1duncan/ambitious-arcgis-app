@@ -15,5 +15,6 @@ test('smoke-test', function(assert) {
 
   andThen(function () {
     assert.equal(currentURL(), '/items?q=water');
+    assert.equal(find('table tbody tr').length, 10);
   });
 });
